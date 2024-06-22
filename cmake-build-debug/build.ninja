@@ -49,12 +49,6 @@ cmake_ninja_workdir = /home/rajab/Desktop/DSA_VOTING/cmake-build-debug/
 
 build cmake_object_order_depends_target_DSA_VOTING: phony || .
 
-build CMakeFiles/DSA_VOTING.dir/main.c.o: C_COMPILER__DSA_VOTING_unscanned_Debug /home/rajab/Desktop/DSA_VOTING/main.c || cmake_object_order_depends_target_DSA_VOTING
-  DEP_FILE = CMakeFiles/DSA_VOTING.dir/main.c.o.d
-  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/DSA_VOTING.dir
-  OBJECT_FILE_DIR = CMakeFiles/DSA_VOTING.dir
-
 build CMakeFiles/DSA_VOTING.dir/vote.c.o: C_COMPILER__DSA_VOTING_unscanned_Debug /home/rajab/Desktop/DSA_VOTING/vote.c || cmake_object_order_depends_target_DSA_VOTING
   DEP_FILE = CMakeFiles/DSA_VOTING.dir/vote.c.o.d
   FLAGS = -g -std=gnu2x -fdiagnostics-color=always
@@ -69,7 +63,7 @@ build CMakeFiles/DSA_VOTING.dir/vote.c.o: C_COMPILER__DSA_VOTING_unscanned_Debug
 #############################################
 # Link the executable DSA_VOTING
 
-build DSA_VOTING: C_EXECUTABLE_LINKER__DSA_VOTING_Debug CMakeFiles/DSA_VOTING.dir/main.c.o CMakeFiles/DSA_VOTING.dir/vote.c.o
+build DSA_VOTING: C_EXECUTABLE_LINKER__DSA_VOTING_Debug CMakeFiles/DSA_VOTING.dir/vote.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/DSA_VOTING.dir
   POST_BUILD = :

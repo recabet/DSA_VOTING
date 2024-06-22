@@ -33,13 +33,14 @@ This Vote Management System is implemented in C language and utilizes a linked l
 
 To use this Vote Management System:
 
-1. Clone the repository:
+1. Clone the repository: git clone https://github.com/recabet/DSA_VOTING.git
 
 2. Navigate to the directory:
+cd DSA_VOTING
 
-3. Compile the program (assuming you have `gcc` installed):
+3. Compile the program (assuming you have `gcc` installed): gcc main.c vote.c -o main
 
-4. Run the executable:
+4. Run the executable: ./main
 
 ## Usage
 
