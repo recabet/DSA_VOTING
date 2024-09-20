@@ -15,7 +15,7 @@ void freelist(T_Elector* head)
 	T_Elector current = *head;
 	while(current)
 	{
-		T_Elector temp = current;
+		const T_Elector temp = current;
 		current = current->next;
 		free(temp->name);
 		free(temp);
@@ -26,7 +26,7 @@ void freelist(T_Elector* head)
 
 void addelector(T_Elector* ptr_to_head, const char* name, const long cin_num, const int choice)
 {
-	T_Elector newVoter = (T_Elector) malloc(sizeof(struct elector));
+	T_Elector newVoter = malloc(sizeof(struct elector));
 	if(!newVoter)
 	{
 		perror("malloc");
@@ -43,7 +43,7 @@ void addelector(T_Elector* ptr_to_head, const char* name, const long cin_num, co
 	*ptr_to_head = insertSorted(*ptr_to_head, newVoter);
 }
 
-void displaylist(T_Elector head)
+void displaylist(const T_Elector head)
 {
 	T_Elector voter = head;
 	printf("\nThe list of voters : ");
@@ -61,7 +61,7 @@ T_Elector creationelector(T_Elector head)
 {
 	long cin_num;
 	char name[100];
-	T_Elector voter = (T_Elector) malloc(sizeof(struct elector));
+	T_Elector voter = malloc(sizeof(struct elector));
 	if(!voter)
 	{
 		perror("malloc");
@@ -95,16 +95,15 @@ T_Elector creationelector(T_Elector head)
 	return voter;
 }
 
-T_Elector creation_T_Elector_Linked_List()
+T_Elector creation_T_Elector_Linked_List(void)
 {
 	T_Elector head = NULL;
-	T_Elector newVoter;
 	int number_of_voters;
 	printf("\nEnter the number of voters: ");
 	scanf("%d", &number_of_voters);
 	for(int i = 0; i < number_of_voters; i++)
 	{
-		newVoter = creationelector(head);
+		T_Elector newVoter = creationelector(head);
 		head = insertSorted(head, newVoter);
 	}
 	return head;
@@ -132,7 +131,7 @@ int alphaOrder(const char* name1, const char* name2)
 	return strcmp(name1, name2);
 }
 
-int countelector(T_Elector head)
+int countelector(const T_Elector head)
 {
 	T_Elector voter = head;
 	int count = 0;
@@ -144,7 +143,7 @@ int countelector(T_Elector head)
 	return count;
 }
 
-int findelector(T_Elector head, const long cin_num)
+int findelector(const T_Elector head, const long cin_num)
 {
 	T_Elector voter = head;
 	while(voter)
@@ -159,7 +158,7 @@ int findelector(T_Elector head, const long cin_num)
 	return 0;
 }
 
-void decomposelist(T_Elector originalList, T_Elector* leftList, T_Elector* rightList, T_Elector* whiteList)
+void decomposelist(const T_Elector originalList, T_Elector* leftList, T_Elector* rightList, T_Elector* whiteList)
 {
 	if(!leftList || !rightList || !whiteList)
 	{
@@ -177,7 +176,7 @@ void decomposelist(T_Elector originalList, T_Elector* leftList, T_Elector* right
 	T_Elector current = originalList;
 	while(current)
 	{
-		T_Elector newNode = (T_Elector) malloc(sizeof(struct elector));
+		T_Elector newNode = malloc(sizeof(struct elector));
 		if(!newNode)
 		{
 			perror("malloc");
@@ -280,7 +279,6 @@ void sortlist(T_Elector head)
 	}
 
 	T_Elector voter = head;
-	long tempVal;
 	int swapped = 1;
 	while(swapped)
 	{
@@ -290,7 +288,7 @@ void sortlist(T_Elector head)
 		{
 			if(voter->cin_num > voter->next->cin_num)
 			{
-				tempVal = voter->cin_num;
+				const long tempVal = voter->cin_num;
 				voter->cin_num = voter->next->cin_num;
 				voter->next->cin_num = tempVal;
 				swapped = 1;
